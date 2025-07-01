@@ -1,0 +1,281 @@
+/* css/style.css */
+
+/* --- Import Font --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* --- Variabel Warna untuk Tema Gelap --- */
+:root {
+    --bg-color: #121212; /* Latar belakang utama (sangat gelap) */
+    --surface-color: #1e1e1e; /* Latar belakang untuk elemen seperti kartu */
+    --primary-color: #bb86fc; /* Warna aksen utama (ungu lembut) */
+    --secondary-color: #03dac6; /* Warna aksen sekunder (teal) */
+    --text-color: #e0e0e0; /* Warna teks utama (putih pudar) */
+    --header-text-color: #ffffff; /* Warna teks untuk judul */
+    --border-color: #333333; /* Warna untuk border */
+}
+
+/* --- Gaya Global & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--surface-color);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.site-header h1 {
+    color: var(--header-text-color);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* --- Konten Utama --- */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h2.page-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.8rem;
+    color: var(--header-text-color);
+    font-weight: 600;
+}
+
+/* --- Daftar Isi (index.html) --- */
+.toc-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+    gap: 1.5rem;
+}
+
+.toc-item a {
+    display: block;
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-color);
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.toc-item a:hover {
+    background-color: #2a2a2a;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-left-color: var(--primary-color);
+}
+
+.toc-item h3 {
+    color: var(--header-text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.toc-item p {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* --- Halaman Konten --- */
+.content-box {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.content-list {
+    list-style-type: none; /* Hilangkan bullet/nomor default */
+    counter-reset: item-counter;
+}
+
+.content-list li {
+    background-color: var(--bg-color);
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border-left: 4px solid var(--secondary-color);
+    position: relative;
+    font-size: 1.1rem;
+}
+
+/* Membuat nomor kustom yang lebih elegan */
+.content-list li::before {
+    counter-increment: item-counter;
+    content: counter(item-counter);
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+
+/* --- Tombol Kembali --- */
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #a966fa;
+    transform: scale(1.05);
+}
+
+/* --- Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Media Queries untuk Responsivitas --- */
+/* Untuk tablet */
+@media (min-width: 600px) {
+    .toc-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    }
+}
+
+/* Untuk laptop/desktop */
+@media (min-width: 900px) {
+    .toc-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    }
+    .site-header h1 {
+        font-size: 2.5rem;
+    }
+}
+/* --- Gaya untuk Light Mode --- */
+body.light-mode {
+    --bg-color: #f4f4f9;
+    --surface-color: #ffffff;
+    --primary-color: #6200ee;
+    --secondary-color: #03dac6;
+    --text-color: #333333;
+    --header-text-color: #000000;
+    --border-color: #e0e0e0;
+}
+
+body.light-mode .site-header {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .toc-item a:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .content-box {
+    box-shadow: 0 5px 15px rgba(0, 0,0, 0.1);
+}
+
+body.light-mode .content-list li {
+    background-color: #fdfdfd;
+}
+
+body.light-mode .content-list li::before {
+    color: var(--surface-color); /* Teks nomor jadi putih/terang */
+}
+
+/* --- Gaya untuk Tombol Theme Switcher --- */
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 1000;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-switcher:hover {
+    transform: scale(1.1);
+}
+
+/* --- Gaya untuk Tombol Back to Top --- */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* --- Gaya untuk Animasi Scroll --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
