@@ -279,3 +279,159 @@ body.light-mode .content-list li::before {
     opacity: 1;
     transform: translateY(0);
 }
+
+.content-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.content-section > h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.content-section > p {
+    max-width: 800px;
+    margin: 0 auto 2.5rem auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #b0b0b0;
+}
+
+.preview-container {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.preview-container h4 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+/* Gaya untuk Pratinjau Dokumen */
+.document-preview {
+    background-color: #ffffff; /* Selalu putih seperti kertas */
+    color: #000;
+    font-family: 'Times New Roman', Times, serif; /* Font khas dokumen formal */
+    padding: 2.5rem;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 12pt;
+    line-height: 1.5;
+}
+
+.document-preview .doc-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.document-preview .doc-logo {
+    width: 60px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.document-preview .doc-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14pt;
+    margin: 0.25rem 0;
+}
+
+.document-preview .doc-subtitle {
+    font-size: 12pt;
+}
+
+.document-preview .doc-line {
+    border-bottom: 1px dotted #555;
+    height: 1.5em;
+    margin: 0.5rem 0;
+}
+
+.document-preview .doc-body {
+    margin-top: 2rem;
+}
+
+.document-preview .doc-section {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.document-preview .doc-label {
+    flex: 0 0 120px; /* Lebar label tetap */
+    font-weight: normal;
+}
+
+.document-preview .doc-content {
+    flex-grow: 1;
+    border-bottom: 1px dotted #555;
+}
+
+.document-preview .doc-signature-area {
+    margin-top: 4rem;
+    float: right;
+    text-align: center;
+    width: 250px;
+}
+
+.document-preview .doc-signature-space {
+    height: 70px;
+}
+
+.document-preview .doc-signature-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+}
+
+/* Clear float */
+.document-preview::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Navigasi internal halaman */
+.page-nav {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+}
+.page-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.page-nav a:hover {
+    background-color: var(--primary-color);
+    color: #000;
+}
+
+/* Media query untuk galeri format */
+@media (min-width: 768px) {
+    .format-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom untuk tablet */
+    }
+}
